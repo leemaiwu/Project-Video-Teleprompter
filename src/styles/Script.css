@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .script-title {
@@ -10,6 +12,16 @@
     align-self: center;
     justify-content: center;
     text-align: center;
+    margin-top: 15px;
+    color: rgb(255, 87, 87);
+}
+
+.script-edit {
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 350px;
+    font-size: 1rem;
+    color: rgb(60, 60, 61)
 }
 
 .teleprompter-text {
@@ -25,12 +37,22 @@
     resize: none;
     font-family: sans-serif;
     letter-spacing: 0.75px;
+    line-height: 130%;
 }
 
 .record-button {
     margin-top: 25px;
-    width: 150px;
-    height: 50px;
-    border-radius: 50px;
-    font-size: 1.2rem;
+    width: 140px;
+    height: 45px;
+    border: none;
+    background-color: rgb(255, 87, 87);
+    border-radius: 10px;
+    font-size: 1.25rem;
+    color: rgb(255, 255, 255);
+}
+
+.record-button:hover {
+    cursor: pointer;
+    background-color: rgb(255, 77, 77);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 10px;
 }

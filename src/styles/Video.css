@@ -1,20 +1,68 @@
+* {
+    overflow-x: hidden;
+}
+
 .video-wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
     color: antiquewhite;
 }
 
 .video-self {
-    width: 100%;
+    width: 102%;
+    height: 100%;
     max-width: 465px;
-    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    /* tap-highlight-color: transparent; */ /* IOS use only */
 }
 
-.back-icon {
+.back-icon-light {
     position: absolute;
     top: 20px;
-    left: 5px;
-    color: #1a1a1a50;
+    left: 0px;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 60px;
     z-index: 5;
-  }
+}
+
+.back-icon-dark {
+    position: absolute;
+    top: 20px;
+    left: 6px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 60px;
+    z-index: 5;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.play-button.fade-in {
+    opacity: 1;
+}
+  
+.play-icon {
+    color: #fff;
+    font-size: 45px;
+    padding-left: 3px;
+}
