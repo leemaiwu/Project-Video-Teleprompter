@@ -1,19 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import TextContext from '../context/TextContext'
 import '../styles/Script.css'
 
-const Script = ({handleScriptText}) => {
+const Script = () => {
 
-    const defaultScriptText =
-        "Bonjour from France! I'm exploring the stunning landscapes and vibrant culture of this beautiful country. There's a cafe just around the corner. I'm just walking around the Tuileries Garden Park now. I will give you all an update at my next stop. Merci! Bye for now."
-    
-    const [scriptText, setScriptText] = useState(defaultScriptText)
-
-    const handleScriptChange = (event) => {
-        const updatedScriptText = event.target.value
-        setScriptText(updatedScriptText || defaultScriptText)
-        handleScriptText(updatedScriptText || defaultScriptText)
-    }
+    const {teleprompterText, setTeleprompterText} = useContext(TextContext)
 
   return (
     <div className='script-container'>
@@ -23,12 +15,12 @@ const Script = ({handleScriptText}) => {
         <p className='script-edit'>Edit as needed:</p>
         <textarea
             className="teleprompter-text"
-            value={scriptText}
-            onChange={handleScriptChange}
+            value={teleprompterText}
+            onChange={(e) => setTeleprompterText(e.target.value)}
         />
         <nav>
-        <Link to={{ pathname: '/video', state: {scriptText: scriptText || defaultScriptText} }}>
-                <button className='record-button'>Record</button>
+        <Link Link to={`/video?text=${encodeURIComponent(teleprompterText)}`}>
+            <button className='record-button' >Record</button>
         </Link>
         </nav>
     </div>
