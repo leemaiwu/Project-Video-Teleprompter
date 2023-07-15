@@ -12,7 +12,7 @@ const Script = () => {
         <div className='script-title'>  
             <h1>Your Teleprompter Script</h1>
         </div>
-        <p className='script-edit'>Edit as needed:</p>
+        <p className='script-edit'>Customize the teleprompter text:</p>
         <textarea
             className="teleprompter-text"
             value={teleprompterText}

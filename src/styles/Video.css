@@ -16,24 +16,15 @@
     -webkit-tap-highlight-color: transparent;
     overflow-x: hidden;
     overflow-y: hidden;
-    z-index: 1;
+    z-index: 2;
     /* tap-highlight-color: transparent; */ /* IOS use only */
-}
-
-.back-icon-light {
-    position: absolute;
-    top: 20px;
-    left: 0px;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 60px;
-    z-index: 5;
 }
 
 .back-icon-dark {
     position: absolute;
     top: 20px;
-    left: 4px;
-    color: rgba(0, 0, 0, 0.6);
+    left: 2px;
+    color: rgba(0, 0, 0, 0.568);
     font-size: 60px;
     z-index: 5;
 }
@@ -54,19 +45,18 @@
     width: 82%;
     max-width: 375px;
     height: 180px;
-    font-family: 'Roboto', sans-serif;
-    /* border: 1px solid red; */
-    font-weight: 700;
-    color: rgba(252, 247, 244, 0.918);
-    font-size: 1.5rem;
+    font-family: "Gill Sans", Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+    font-size: 1.7rem;
     cursor: pointer;
     z-index: 5;
-    -webkit-tap-highlight-color: rgb(255, 255, 255);
+    -webkit-tap-highlight-color: rgb(252, 247, 244);
     overflow: hidden;
     background-clip: unset;
     -webkit-background-clip: unset;
     -webkit-tap-highlight-color: transparent;
-    -moz-text-fill-color: rgba(255, 255, 255, 0.828);
+    -moz-text-fill-color: rgb(252, 247, 244);
     -moz-background-clip: unset;
     -webkit-text-stroke: 1px rgba(52, 52, 52, 0.532);
     -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
