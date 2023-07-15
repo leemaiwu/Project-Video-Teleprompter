@@ -5,7 +5,7 @@ const TextContext = createContext()
 export const TextContextProvider = ({children}) => {
 
     const [teleprompterText, setTeleprompterText] = useState(
-        "Bonjour from France! I'm exploring the stunning landscapes and vibrant culture of this beautiful country. There's a cafe just around the corner. I'm just walking around the Tuileries Garden Park now. I will give you all an update at my next stop. Merci! Bye for now."
+        "Bonjour from France! I'm exploring the stunning views and vibrant culture of this beautiful country. There's a cafe just around the corner. I'm walking by the Tuileries Garden Park now. I will give you all another update at my next stop, bye for now. Merci!"
     )
 
     useEffect(() => {

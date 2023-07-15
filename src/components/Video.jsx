@@ -45,7 +45,7 @@ const Video = () => {
                 if (teleprompterRef.current) {
                     teleprompterRef.current.scrollTop += 1
                 }
-            }, 43)
+            }, 40)
         }
     }
 

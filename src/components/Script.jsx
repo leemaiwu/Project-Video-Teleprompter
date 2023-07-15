@@ -10,9 +10,9 @@ const Script = () => {
   return (
     <div className='script-container'>
         <div className='script-title'>  
-            <h1>Your Teleprompter Script</h1>
+            <h1>Teleprompter Script</h1>
         </div>
-        <p className='script-edit'>Customize the teleprompter text:</p>
+        <p className='script-edit'>Customize your teleprompter text:</p>
         <textarea
             className="teleprompter-text"
             value={teleprompterText}
