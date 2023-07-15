@@ -71,11 +71,6 @@ const Video = () => {
 
   return (
     <div className="video-wrapper"  ref={containerRef}>
-        {/* <nav>
-            <Link to="..">
-                <HiOutlineChevronLeft className="back-icon-light" />
-            </Link>
-        </nav> */}
         <nav>
             <Link to="..">
                 <HiOutlineChevronLeft className="back-icon-dark" />
