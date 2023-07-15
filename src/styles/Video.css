@@ -57,20 +57,22 @@
     font-family: 'Roboto', sans-serif;
     /* border: 1px solid red; */
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.828);
-    font-size: 2rem;
+    color: rgba(252, 247, 244, 0.918);
+    font-size: 1.5rem;
     cursor: pointer;
     z-index: 5;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.828);
+    -webkit-tap-highlight-color: rgb(255, 255, 255);
     overflow: hidden;
     background-clip: unset;
     -webkit-background-clip: unset;
     -webkit-tap-highlight-color: transparent;
     -moz-text-fill-color: rgba(255, 255, 255, 0.828);
     -moz-background-clip: unset;
-    -webkit-text-stroke: 0.75px rgb(105, 105, 105);
-    ;letter-spacing: 1px;
-    overflow-y: auto;
+    -webkit-text-stroke: 1px rgba(52, 52, 52, 0.532);
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+    letter-spacing: 1px;
+    overflow-y: scroll;
     scrollbar-width: none;
 }
 

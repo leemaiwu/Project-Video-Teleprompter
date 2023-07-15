@@ -13,8 +13,10 @@ const Video = () => {
 
     const videoRef = useRef(null)
     const containerRef = useRef(null)
+    const teleprompterRef = useRef(null)
     const [isPlaying, setIsPlaying] = useState(false)
     const [showPlayButton, setShowPlayButton] = useState(true)
+    let scrollInterval = null
 
     const handleVideoClick = () => {
         if (isPlaying) {
@@ -28,52 +30,82 @@ const Video = () => {
     const handleVideoPlay = () => {
         setIsPlaying(true)
         setShowPlayButton(false)
+        startScrolling()
     }
 
     const handleVideoPause = () => {
         setIsPlaying(false)
         setShowPlayButton(true)
+        stopScrolling()
+    }
+
+    const startScrolling = () => {
+        if (scrollInterval === null) {
+            scrollInterval = setInterval(() => {
+                if (teleprompterRef.current) {
+                    teleprompterRef.current.scrollTop += 1
+                }
+            }, 47)
+        }
+    }
+
+    const stopScrolling = () => {
+        clearInterval(scrollInterval)
+        scrollInterval = null
     }
 
     useEffect(() => {
-        console.log("teleprompterText in Video:", teleprompterText)
-    }, [teleprompterText])
+        videoRef.current.addEventListener('play', handleVideoPlay)
+        videoRef.current.addEventListener('pause', handleVideoPause)
 
-    return (
-        <div className='video-wrapper' ref={containerRef}>
-            <nav>
-                <Link to='..'>
-                    <HiOutlineChevronLeft className='back-icon-light' />
-                </Link>
-            </nav>
-            <nav>
-                <Link to='..'>
-                    <HiOutlineChevronLeft className='back-icon-dark' />
-                </Link>
-            </nav>
+        return () => {
+            if (videoRef.current) {
+                videoRef.current.removeEventListener('play', handleVideoPlay)
+                // eslint-disable-next-line
+                videoRef.current.removeEventListener('pause', handleVideoPause)
+            }
+            stopScrolling()
+        }
+    // eslint-disable-next-line
+    }, [])
 
-            <div className="teleprompter" onClick={handleVideoClick}>
-                {teleprompterText}
-            </div>
+  return (
+    <div className="video-wrapper"  ref={containerRef}>
+        <nav>
+            <Link to="..">
+                <HiOutlineChevronLeft className="back-icon-light" />
+            </Link>
+        </nav>
+        <nav>
+            <Link to="..">
+                <HiOutlineChevronLeft className="back-icon-dark" />
+            </Link>
+        </nav>
 
-            <video
-                className='video-self'
-                ref={videoRef}
-                onClick={handleVideoClick}
-                onPlay={handleVideoPlay}
-                onPause={handleVideoPause}
-                playsInline
-            >
-                <source src={video} type='video/mp4' />
-            </video>
-
-            {!isPlaying && showPlayButton && (
-                <div className={`play-button ${showPlayButton ? 'fade-in' : ''}`} onClick={handleVideoClick}>
-                    <FaPlay className='play-icon' />
-                </div>
-            )}
+        <div className="teleprompter" ref={teleprompterRef} onClick={handleVideoClick}>
+            <br/>
+            {teleprompterText}
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
-    )
+
+        <video className="video-self" ref={videoRef} playsInline onClick={handleVideoClick}>
+            <source src={video} type="video/mp4" />
+        </video>
+
+        {!isPlaying && showPlayButton && (
+            <div className={`play-button ${showPlayButton ? 'fade-in' : ''}`} onClick={handleVideoClick}>
+            <FaPlay className="play-icon" />
+            </div>
+        )}
+    </div>
+  )
 }
 
 export default Video
